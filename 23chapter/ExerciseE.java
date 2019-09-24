@@ -12,7 +12,7 @@ public class ExerciseE{
 
 
 		//Action:
-		while (term > 1.0E-12){
+		for (double term = 1; term > 1.0E-12; term){
 
 
 
