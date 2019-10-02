@@ -27,7 +27,7 @@ public class PigLikeDiceGame{
 				roll = RandomNumber.randomInt(5) + 1;
 				System.out.println("You Rolled: " + roll);
 				playerTurnScore += roll;
-				System.out.println("Roll? (Y for yes and N for no)");
+				System.out.println("Roll? (y for yes and n for no)");
 				rollQuestion = scan.nextLine();
 
 			}
