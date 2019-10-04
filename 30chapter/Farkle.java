@@ -76,23 +76,60 @@ public class Farkle{
 		int[] rolls = new int[6];
 
 		while(score1 < 10000 && score2 < 10000 && round < 2){
+			
 
-			System.out.println("\n\nRound: " + round);
 
-			rolls = roll(player1, 6);
+			//Setup:
+			System.out.println("\n\nRoll: " + rollNumber);
+			int savedNumbers = 0;
+			rolls = roll(player1, 6 - savedNumbers);
 			Arrays.sort(rolls);
-			System.out.println("\nHow many dice would you like to save?");
-			int saveNumber = scan.nextInt();
-			int[] savedRolls = new int[6];
-			for (int i = 0; i < saveNumber; i++){
-				System.out.println("Which spot would you like to save?");
-				int spot = scan.nextInt();
-				savedRolls[i] = rolls[spot];
-				
+
+
+
+			//Scoring:
+			while (notGood){
+				System.out.println("\nHow many dice would you like to save?");
+				int saveNumber = scan.nextInt();
+				int[] savedRolls = new int[6];
+
+				for (int i = 0; i < saveNumber; i++){
+					System.out.println("Which spot would you like to score?");
+					int spot = scan.nextInt();
+					savedRolls[i] = rolls[spot];
+					savedNumbers += 1;
+				}
+//
+//				for (int i = 0; i < savedNumbers; i++){
+//					if (savedNumbers[i] == 1)
+//						oneCount += 1;
+//					if (savedNumbers[i] == 2)
+//						twoCount += 1;
+//					if (savedNumbers[i] == 3)
+//						threeCount += 1;
+//					if (savedNumbers[i] == 4)
+//						fourCount += 1;
+//					if (savedNumbers[i] == 5)
+//						fiveCount += 1;
+//					if (savedNumbers[i] == 6)
+//						sixCount += 1;
+//				}
+//
+//				if (oneCount > 0 && oneCount < 3){
+//					
+//				}
+//
+
+
+					score += subscore;
+				}
+
+
 			}
 
 
-			System.out.println(Arrays.toString(savedRolls));
+
+			System.out.println("Saved Numbers: " + Arrays.toString(savedRolls));
 
 
 
@@ -103,6 +140,62 @@ public class Farkle{
 
 
 
+
+
+
+
+
+			while (!farkle && Arrays.toString(savedRolls).indexOf(0) != -1){
+
+				rolls = roll(player1, 6 - savedNumbers);
+
+				Arrays.sort(rolls);
+
+				System.out.println("\nHow many dice would you like to save?");
+				int saveNumber = scan.nextInt();
+				int[] savedRolls = new int[6];
+
+
+				for (int i = 0; i < saveNumber; i++){
+					System.out.println("Which spot would you like to save?");
+					int spot = scan.nextInt();
+					savedRolls[i] = rolls[spot];
+					savedNumbers += 1;
+			}
+
+			
+
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+//Layout:
+			//Game played while both have less than 10000 points
+				//switch between player turns
+					//Turn:
+					//Roll remaining blank spots
+					//Save what is wanted
+						//Check what must be scored
+					//Score the numbers
+			//Repeat: (until savedNumbers = 6 or farkle == true)
+					//Roll remaining blank spots
+					//Check for Farkle
+					//Save what is wanted
+						//Check what must be scored
+					//Score Numbers
+			//End of Turn:
+				// if Farkle: add no score
+				// else: add score
+			
 
 
 
@@ -150,7 +243,7 @@ public class Farkle{
 //
 //
 //
-			round += 1;
+			rollNumber += 1;
 		}
 
 
