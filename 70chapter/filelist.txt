@@ -1,0 +1,3 @@
+filelist.txt  output.txt  test.class  test.java
+// dir > filelist.txt
+// cat filelist.txt (prints text in file)
