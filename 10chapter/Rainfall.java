@@ -10,6 +10,6 @@ public class Rainfall
 		System.out.print("Rainfall for June: \t " + june + "\n");
 		double average = (june + may + april) / 3;
 		System.out.println("Average Rainfall: \t " + average);
-		System.out.println("Sweet!");
+		System.out.println("Sweet! Now this is quality rainfall!");
 	}
 }
